@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { DescriptionPage } from '../pages/description/description';
 import { AjoutTachePage } from '../pages/ajoutTache/ajoutTache';
 import { TabsPage } from '../pages/tabs/tabs';
 import { TodoListService } from '../services/todolist.service';
@@ -16,6 +17,7 @@ import { HttpModule } from '@angular/http';
     MyApp,
     TabsPage,
     HomePage,
+    DescriptionPage,
     AjoutTachePage
   ],
   imports: [
@@ -28,6 +30,7 @@ import { HttpModule } from '@angular/http';
     MyApp,
     TabsPage,
     HomePage,
+    DescriptionPage,
     AjoutTachePage
   ],
   providers: [

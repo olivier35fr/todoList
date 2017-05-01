@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 
 import { TodoListService } from '../../services/todolist.service';
+import { ModalController } from 'ionic-angular';
+import { DescriptionPage } from '../description/description';
 
 @Component({
   selector: 'page-home',
@@ -13,12 +15,14 @@ export class HomePage implements OnInit {
 
   public todoList: any[];
 
-  constructor(public navCtrl: NavController, private todoListService: TodoListService, public alertCtrl: AlertController) {
+  constructor(
+    public navCtrl: NavController,
+    private todoListService: TodoListService,
+    public alertCtrl: AlertController,
+    public modalCtrl: ModalController
+  ) {
 
   }
-
-
-
 
   delete(i) {
     this.todoList.splice(i, 1);
@@ -38,6 +42,11 @@ export class HomePage implements OnInit {
       buttons: ['OK']
     });
     alert.present();
+  }
+
+  edit(item) {
+    let modal = this.modalCtrl.create(DescriptionPage,{'myParam':item});
+    modal.present();
   }
 
 }
