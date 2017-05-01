@@ -17,8 +17,8 @@ export class TodoListService {
             .map(res => res.json());
     }
 
-    public getItem(id) {
-        const url = this.baseUrl+id;
+    public getItem(index: number) {
+        const url = this.baseUrl+index;
         console.log(url);
         return this.http.get(url)
             .map(res => res.json());

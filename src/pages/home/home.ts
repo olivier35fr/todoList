@@ -24,7 +24,7 @@ export class HomePage implements OnInit {
 
   }
 
-  delete(i) {
+  delete(i: number) {
     this.todoList.splice(i, 1);
   }
 
@@ -44,8 +44,8 @@ export class HomePage implements OnInit {
     alert.present();
   }
 
-  edit(item) {
-    let modal = this.modalCtrl.create(DescriptionPage,{'myParam':item});
+  edit(i: number) {
+    let modal = this.modalCtrl.create(DescriptionPage,{'myParam':i});
     modal.present();
   }
 

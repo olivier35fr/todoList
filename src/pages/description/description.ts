@@ -9,19 +9,18 @@ import { TodoListService } from '../../services/todolist.service';
 })
 export class DescriptionPage implements OnInit {
 
-  public todoList;
-  public id: number;
+  public todoList: any[];
+  public index: number;
 
   constructor( public viewCtrl: ViewController, public params: NavParams, private todoListService: TodoListService ) {
 
-    let item = [this.params.get('myParam')];
-    this.id = item[0]['id'];
+    this.index = this.params.get('myParam');
 
   }
 
   ngOnInit(){
-    console.log(this.id);
-    this.todoListService.getItem(this.id).subscribe(
+    console.log(this.index);
+    this.todoListService.getItem(this.index).subscribe(
       data => this.todoList = data
     );
   }
