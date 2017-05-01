@@ -1,34 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavParams, ViewController } from 'ionic-angular';
-import { TodoListService } from '../../services/todolist.service';
 
 @Component({
   selector: 'page-description',
   templateUrl: 'description.html',
-  providers: [TodoListService]
 })
-export class DescriptionPage implements OnInit {
+export class DescriptionPage {
 
-  public todoList: any[];
-  public index: number;
-
-  constructor(public viewCtrl: ViewController, public params: NavParams, private todoListService: TodoListService) {
-
-    this.index = this.params.get('myParam');
+  constructor(public viewCtrl: ViewController, public params: NavParams) {
 
   }
 
-  ngOnInit() {
-    this.todoListService.getItem(this.index).subscribe(
-      data => this.todoList = data
-    );
-  }
+  public item: any[];
 
+  ionViewWillLoad() {
+    this.item = this.params.get('data');
+  }
 
   cancel() {
     this.viewCtrl.dismiss();
   }
-
-
 
 }

@@ -31,7 +31,7 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.todoListService.getTodoList().subscribe(
       data => this.todoList = data,
-      data => this.problemeConnexion()
+      data => this.problemeConnexion(),
     );
   }
 
@@ -44,8 +44,13 @@ export class HomePage implements OnInit {
     alert.present();
   }
 
-  edit(i: number) {
+  /*edit(i: number) {
     let modal = this.modalCtrl.create(DescriptionPage,{'myParam':i});
+    modal.present();
+  }*/
+
+  edit(item){
+    let modal = this.modalCtrl.create(DescriptionPage, {'data': item});
     modal.present();
   }
 
