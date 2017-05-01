@@ -15,12 +15,12 @@
 <ion-content padding>
 
 
+{{todoList | json}}
 
 
   <ion-item *ngFor="let item of todoList">
     {{item.title}}
   </ion-item>
-
 
 
 

@@ -12,14 +12,13 @@ export class DescriptionPage implements OnInit {
   public todoList: any[];
   public index: number;
 
-  constructor( public viewCtrl: ViewController, public params: NavParams, private todoListService: TodoListService ) {
+  constructor(public viewCtrl: ViewController, public params: NavParams, private todoListService: TodoListService) {
 
     this.index = this.params.get('myParam');
 
   }
 
-  ngOnInit(){
-    console.log(this.index);
+  ngOnInit() {
     this.todoListService.getItem(this.index).subscribe(
       data => this.todoList = data
     );
