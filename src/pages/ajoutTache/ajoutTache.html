@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Ajouter une tâche
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding text-center>
+
+
+
+<ion-list>
+
+  <ion-item>
+    <ion-label floating>Intitulé</ion-label>
+    <ion-input type="text" [(ngModel)]="tache"></ion-input>
+  </ion-item>
+
+</ion-list>
+
+<button ion-button (click)="ajoutTache(tache)">Ajouter</button>
+
+
+</ion-content>

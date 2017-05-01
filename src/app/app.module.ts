@@ -6,21 +6,29 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { AjoutTachePage } from '../pages/ajoutTache/ajoutTache';
+import { TabsPage } from '../pages/tabs/tabs';
 import { TodoListService } from '../services/todolist.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    TabsPage,
+    HomePage,
+    AjoutTachePage
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    TabsPage,
+    HomePage,
+    AjoutTachePage
   ],
   providers: [
     TodoListService,
