@@ -12,16 +12,19 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding text-center>
 
 
-{{item.title}}
+<ion-list>
 
-
-  <ion-item *ngFor="let item of todoList">
-    {{item.title}}
+  <ion-item>
+    <ion-label floating>Titre</ion-label>
+    <ion-input type="text" [(ngModel)]="item.title"></ion-input>
   </ion-item>
 
+  <button ion-button (click)="modifierTache(item)">Mettre à jour</button>
+
+</ion-list>
 
 
 

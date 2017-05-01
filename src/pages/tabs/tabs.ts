@@ -15,6 +15,6 @@ export class TabsPage {
 
   }
 
-  badgeValue = 2;
+  badgeValue = 20;
 
 }

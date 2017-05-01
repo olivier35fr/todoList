@@ -11,13 +11,13 @@ export class TodoListService {
 
     }
 
-    public getTodoList() {
+    getTodoList() {
         const url = this.baseUrl;
         return this.http.get(url)
             .map(res => res.json());
     }
 
-    public getItem(index: number) {
+    getItem(index: number) {
         const url = this.baseUrl + index;
         return this.http.get(url)
             .map(res => res.json());

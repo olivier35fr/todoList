@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { NavParams, ViewController } from 'ionic-angular';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { HomePage } from '../home/home';
+import { ToastController } from 'ionic-angular';
 
 @Component({
   selector: 'page-description',
@@ -7,11 +9,12 @@ import { NavParams, ViewController } from 'ionic-angular';
 })
 export class DescriptionPage {
 
-  constructor(public viewCtrl: ViewController, public params: NavParams) {
+  constructor(public navCtrl: NavController, public viewCtrl: ViewController, public params: NavParams, public toastCtrl: ToastController) {
 
   }
 
   public item: any[];
+
 
   ionViewWillLoad() {
     this.item = this.params.get('data');
@@ -19,6 +22,20 @@ export class DescriptionPage {
 
   cancel() {
     this.viewCtrl.dismiss();
+  }
+
+  modifierTache(updatedItem) {
+    console.log(updatedItem);
+    this.navCtrl.setRoot(HomePage);
+    this.presentToast();
+  }
+
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'Tâche mise à jour avec succès',
+      duration: 3000
+    });
+    toast.present();
   }
 
 }
