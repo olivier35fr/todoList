@@ -5,22 +5,21 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class TodoListService {
 
-    private baseUrl: string = 'https://jsonplaceholder.typicode.com/posts/';
+    private getTachesUrl: string = 'http://localhost/todolist_api/get_taches.php';
+    private updateTacheUrl: string = 'http://localhost/todolist_api/update_tache.php';
 
     constructor(private http: Http) {
 
     }
 
     getTodoList() {
-        const url = this.baseUrl;
-        return this.http.get(url)
+        return this.http.get(this.getTachesUrl)
             .map(res => res.json());
     }
 
-    getItem(index: number) {
-        const url = this.baseUrl + index;
-        return this.http.get(url)
-            .map(res => res.json());
+    updateTache(item){
+        let json = JSON.stringify(item);
+        return this.http.post(this.updateTacheUrl,json);
     }
 
 }

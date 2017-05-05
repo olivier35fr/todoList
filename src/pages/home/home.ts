@@ -31,7 +31,7 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.todoListService.getTodoList().subscribe(
       data => this.todoList = data,
-      data => this.problemeConnexion(),
+      data => this.problemeConnexion()
     );
   }
 

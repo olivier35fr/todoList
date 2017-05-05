@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { ToastController } from 'ionic-angular';
+import { TodoListService } from '../../services/todolist.service';
 
 @Component({
   selector: 'page-description',
@@ -9,11 +10,12 @@ import { ToastController } from 'ionic-angular';
 })
 export class DescriptionPage {
 
-  constructor(public navCtrl: NavController, public viewCtrl: ViewController, public params: NavParams, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public viewCtrl: ViewController, public params: NavParams, public toastCtrl: ToastController, private todolistService: TodoListService) {
 
   }
 
   public item: any[];
+  public postItem: string;
 
 
   ionViewWillLoad() {
@@ -25,8 +27,11 @@ export class DescriptionPage {
   }
 
   modifierTache(updatedItem) {
-    console.log(updatedItem);
-    this.navCtrl.setRoot(HomePage);
+    this.todolistService.updateTache(updatedItem).subscribe(
+      data => this.postItem = JSON.stringify(data),
+      error => alert(error),
+      () => this.navCtrl.setRoot(HomePage)
+    )
     this.presentToast();
   }
 
